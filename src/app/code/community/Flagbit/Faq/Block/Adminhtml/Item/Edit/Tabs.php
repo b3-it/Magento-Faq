@@ -16,10 +16,6 @@
  */
 class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
 {
-    /**
-     * Constructs current object
-     *
-     */
     public function __construct()
     {
         parent::__construct();
@@ -30,21 +26,31 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tabs extends Mage_Adminhtml_Block_Wi
     
     /**
      * Prepares the page layout
-     * 
+     *
      * Adds the tabs to the left tab menu.
-     * 
-     * @return Flagbit_Faq_Block_Admin_Edit
+     *
+     * @return $this
      */
     protected function _prepareLayout()
     {
         $return = parent::_prepareLayout();
 
         $this->addTab(
-            'main_section', 
+            'main_section',
             array(
                 'label' => Mage::helper('flagbit_faq')->__('General information'),
                 'title' => Mage::helper('flagbit_faq')->__('General information'),
                 'content' => $this->getLayout()->createBlock('flagbit_faq/adminhtml_item_edit_tab_main')->toHtml(),
+                'active' => true,
+            )
+        );
+
+        $this->addTab(
+            'meta_information_section',
+            array(
+                'label' => Mage::helper('flagbit_faq')->__('Meta Information'),
+                'title' => Mage::helper('flagbit_faq')->__('Meta Information'),
+                'content' => $this->getLayout()->createBlock('flagbit_faq/adminhtml_item_edit_tab_metaInformation')->toHtml(),
                 'active' => true,
             )
         );
