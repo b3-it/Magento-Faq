@@ -16,12 +16,12 @@ Features
 * Every entry can be enabled/disabled individually
 * German, Dutch and Russian Localization
 * SEO-friendly URLs
+* Meta-Information for FAQ items
 
 Open Feature Requests
 ----------------
 
 * Sorting of FAQ items within a category
-* Add Meta-Information for FAQ items (like for products)
 
 Contributions are highly appreciated.
 
