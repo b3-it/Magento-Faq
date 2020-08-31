@@ -25,8 +25,8 @@ class Flagbit_Faq_Helper_Data extends Mage_Core_Helper_Abstract
     public function getConfigData($field)
     {
         $path = 'faq/config/' . $field;
-        $config = Mage::getStoreConfig($path, Mage::app()->getStore());
-        return $config;
+
+        return Mage::getStoreConfig($path, Mage::app()->getStore());
     }
 
     /**
@@ -37,5 +37,18 @@ class Flagbit_Faq_Helper_Data extends Mage_Core_Helper_Abstract
     public function getFaqIndexUrl()
     {
         return $this->_getUrl('faq');
+    }
+
+    public function getUrlForFaqItem(Flagbit_Faq_Model_Faq $faqModel, ?Mage_Core_Model_Store $store = null): string
+    {
+        return $this->_getUrl($this->getFaqUrlKey() . '/' . $faqModel->getUrlKey());
+    }
+
+    /**
+     * Get configured URL key.
+     */
+    public function getFaqUrlKey(): string
+    {
+        return Mage::getStoreConfig('flagbit_faq/general/url_key');
     }
 }

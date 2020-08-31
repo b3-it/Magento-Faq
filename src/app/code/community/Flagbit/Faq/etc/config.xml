@@ -4,10 +4,10 @@
 		<Flagbit_Faq>
 			<active>true</active>
 			<codePool>community</codePool>
-			<version>1.1.4</version>
+			<version>1.2.0</version>
 		</Flagbit_Faq>
 	</modules>
-	
+
 	<admin>
         <routers>
             <adminhtml>
@@ -121,6 +121,7 @@
 			</modules>
 		</translate>
 	</adminhtml>
+
 	<install>
 		<translate>
 			<modules>
@@ -132,4 +133,20 @@
 			</modules>
 		</translate>
 	</install>
+
+	<default>
+		<web>
+			<routers>
+				<flagbit_faq>
+					<area>frontend</area>
+					<class>Flagbit_Faq_Controller_Router</class>
+				</flagbit_faq>
+			</routers>
+		</web>
+		<flagbit_faq>
+			<general>
+				<url_key>faq</url_key>
+			</general>
+		</flagbit_faq>
+	</default>
 </config>

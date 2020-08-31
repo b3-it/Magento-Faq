@@ -15,6 +15,7 @@ Features
 * Categorizing of FAQ items
 * Every entry can be enabled/disabled individually
 * German, Dutch and Russian Localization
+* SEO-friendly URLs
 
 Open Feature Requests
 ----------------

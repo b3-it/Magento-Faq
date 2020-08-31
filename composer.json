@@ -32,5 +32,11 @@
                 "app/locale/ru_RU/Flagbit_Faq.csv"
             ]
         ]
+    },
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "vianetz/coding-standards": "dev-master"
     }
 }

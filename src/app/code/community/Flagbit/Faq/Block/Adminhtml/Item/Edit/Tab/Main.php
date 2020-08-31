@@ -18,10 +18,10 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
 {
     /**
      * Prepares the page layout
-     * 
+     *
      * Loads the WYSIWYG editor on demand if enabled.
-     * 
-     * @return Flagbit_Faq_Block_Admin_Edit
+     *
+     * @return $this
      */
     protected function _prepareLayout()
     {
@@ -29,13 +29,14 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
         if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
             $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
         }
+
         return $return;
     }
     
     /**
      * Preparation of current form
      *
-     * @return Flagbit_Faq_Block_Admin_Edit_Tab_Main Self
+     * @return $this
      */
     protected function _prepareForm()
     {
@@ -45,7 +46,7 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
         $form->setHtmlIdPrefix('faq_');
         
         $fieldset = $form->addFieldset('base_fieldset', array (
-                'legend' => Mage::helper('flagbit_faq')->__('General information'), 
+                'legend' => $this->helper('flagbit_faq')->__('General information'),
                 'class' => 'fieldset-wide' ));
         
         if ($model->getFaqId()) {
@@ -55,8 +56,8 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
         
         $fieldset->addField('question', 'text', array (
                 'name' => 'question', 
-                'label' => Mage::helper('flagbit_faq')->__('FAQ item question'), 
-                'title' => Mage::helper('flagbit_faq')->__('FAQ item question'), 
+                'label' => $this->helper('flagbit_faq')->__('FAQ item question'),
+                'title' => $this->helper('flagbit_faq')->__('FAQ item question'),
                 'required' => true ));
         
         /**
@@ -66,8 +67,8 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
             $fieldset->addField('store_id', 'multiselect', 
                     array (
                             'name' => 'stores[]', 
-                            'label' => Mage::helper('cms')->__('Store view'), 
-                            'title' => Mage::helper('cms')->__('Store view'), 
+                            'label' => $this->helper('cms')->__('Store view'),
+                            'title' => $this->helper('cms')->__('Store view'),
                             'required' => true, 
                             'values' => Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true) ));
         }
@@ -80,18 +81,18 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
         
         $fieldset->addField('is_active', 'select', 
                 array (
-                        'label' => Mage::helper('cms')->__('Status'), 
-                        'title' => Mage::helper('flagbit_faq')->__('Item status'), 
+                        'label' => $this->helper('cms')->__('Status'),
+                        'title' => $this->helper('flagbit_faq')->__('Item status'),
                         'name' => 'is_active', 
                         'required' => true, 
                         'options' => array (
-                                '1' => Mage::helper('cms')->__('Enabled'), 
-                                '0' => Mage::helper('cms')->__('Disabled') ) ));
+                                '1' => $this->helper('cms')->__('Enabled'),
+                                '0' => $this->helper('cms')->__('Disabled') ) ));
         
         $fieldset->addField('category_id', 'multiselect', 
             array (
-                'label' => Mage::helper('flagbit_faq')->__('Category'), 
-                'title' => Mage::helper('flagbit_faq')->__('Category'), 
+                'label' => $this->helper('flagbit_faq')->__('Category'),
+                'title' => $this->helper('flagbit_faq')->__('Category'),
                 'name' => 'categories[]', 
                 'required' => false,
                 'values' => Mage::getResourceSingleton('flagbit_faq/category_collection')->toOptionArray(),
@@ -101,21 +102,28 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
         $fieldset->addField('answer', 'editor', 
                 array (
                         'name' => 'answer', 
-                        'label' => Mage::helper('flagbit_faq')->__('Content'), 
-                        'title' => Mage::helper('flagbit_faq')->__('Content'), 
+                        'label' => $this->helper('flagbit_faq')->__('Content'),
+                        'title' => $this->helper('flagbit_faq')->__('Content'),
                         'style' => 'height:36em;',
                         'config'    => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
                         'required' => true ));
         
         $fieldset->addField('answer_html', 'select', 
                 array (
-                        'label' => Mage::helper('flagbit_faq')->__('HTML answer'), 
-                        'title' => Mage::helper('flagbit_faq')->__('HTML answer'), 
+                        'label' => $this->helper('flagbit_faq')->__('HTML answer'),
+                        'title' => $this->helper('flagbit_faq')->__('HTML answer'),
                         'name' => 'answer_html', 
                         'required' => true, 
                         'options' => array (
-                                '1' => Mage::helper('cms')->__('Enabled'), 
-                                '0' => Mage::helper('cms')->__('Disabled') ) ));
+                                '1' => $this->helper('cms')->__('Enabled'),
+                                '0' => $this->helper('cms')->__('Disabled') ) ));
+
+        $fieldset->addField('url_key', 'text', [
+            'name' => 'url_key',
+            'label' => $this->helper('flagbit_faq')->__('URL Key'),
+            'title' => $this->helper('flagbit_faq')->__('URL Key'),
+            'required' => true,
+        ]);
         
         $form->setValues($model->getData());
         $this->setForm($form);
