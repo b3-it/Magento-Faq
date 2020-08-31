@@ -120,6 +120,13 @@
 				</Flagbit_Faq>
 			</modules>
 		</translate>
+		<layout>
+			<updates>
+				<vianetz_faq>
+					<file>flagbit_faq.xml</file>
+				</vianetz_faq>
+			</updates>
+		</layout>
 	</adminhtml>
 
 	<install>
