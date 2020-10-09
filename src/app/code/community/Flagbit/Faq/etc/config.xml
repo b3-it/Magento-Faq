@@ -122,9 +122,9 @@
 		</translate>
 		<layout>
 			<updates>
-				<vianetz_faq>
+				<flagbit_faq>
 					<file>flagbit_faq.xml</file>
-				</vianetz_faq>
+				</flagbit_faq>
 			</updates>
 		</layout>
 	</adminhtml>
