@@ -38,8 +38,8 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tabs extends Mage_Adminhtml_Block_Wi
         $this->addTab(
             'main_section',
             array(
-                'label' => Mage::helper('flagbit_faq')->__('General information'),
-                'title' => Mage::helper('flagbit_faq')->__('General information'),
+                'label' => $this->helper('flagbit_faq')->__('General information'),
+                'title' => $this->helper('flagbit_faq')->__('General information'),
                 'content' => $this->getLayout()->createBlock('flagbit_faq/adminhtml_item_edit_tab_main')->toHtml(),
                 'active' => true,
             )
@@ -48,10 +48,10 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tabs extends Mage_Adminhtml_Block_Wi
         $this->addTab(
             'meta_information_section',
             array(
-                'label' => Mage::helper('flagbit_faq')->__('Meta Information'),
-                'title' => Mage::helper('flagbit_faq')->__('Meta Information'),
+                'label' => $this->helper('flagbit_faq')->__('Meta Information'),
+                'title' => $this->helper('flagbit_faq')->__('Meta Information'),
                 'content' => $this->getLayout()->createBlock('flagbit_faq/adminhtml_item_edit_tab_metaInformation')->toHtml(),
-                'active' => true,
+                'active' => false,
             )
         );
         

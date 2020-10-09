@@ -6,7 +6,7 @@ Adds a new FAQ item to the CMS menu in the backend. This allows you to supply yo
 Setup
 -----
 
-After installation the FAQ list is availible at http://example.com/your-magento-path/faq. You can add a link to the FAQ module in any static block or page like this: {{store direct_url="faq"}}.
+After installation the FAQ list is available at http://example.com/your-magento-path/faq. You can add a link to the FAQ module in any static block or page like this: {{store direct_url="faq"}}.
 
 Features
 --------
@@ -24,10 +24,3 @@ Open Feature Requests
 * Sorting of FAQ items within a category
 
 Contributions are highly appreciated.
-
-FAQ
----
-
-I'm going to install Flagbit Change Attribute Set extension and I would like ask you what happen to attribute that doesn't belong anymore to the target attribute set. Are they deleted from database records or they are orphans?
-
-They are orphaned. Means if you accidently pick the wrong product and change back your attribute values are still there. if you want to clean up you have to do it manually.
