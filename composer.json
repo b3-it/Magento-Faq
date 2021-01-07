@@ -1,6 +1,9 @@
 {
     "name": "flagbit/faq",
     "type": "magento-module",
+    "keywords": [
+        "faq", "magento", "openmage"
+    ],
     "extra": {
         "map": [
             [
