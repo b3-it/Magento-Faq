@@ -38,7 +38,7 @@ class Flagbit_Faq_Block_Frontend_Detail extends Mage_Core_Block_Template {
 	/**
 	 * Function to gather the current faq item
 	 *
-	 * @return Flagbit_Faq_Model_Faq The current faq item
+	 * @return Flagbit_Faq_Model_Faq|false The current faq item
 	 */
 	public function getFaq() {
 		if (!$this->_faq) {
