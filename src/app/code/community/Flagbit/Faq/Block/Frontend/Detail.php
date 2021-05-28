@@ -32,7 +32,9 @@ class Flagbit_Faq_Block_Frontend_Detail extends Mage_Core_Block_Template {
             $head->setDescription($faq->getMetaDescription());
         }
 
-        $head->setTitle($this->escapeHtml($faq->getQuestion()) . ' - ' . $head->getTitle());
+        $title = ! empty($faq->getData('meta_title')) ? $faq->getData('meta_title') : $faq->getData('question');
+
+        $head->setTitle($this->escapeHtml($title) . ' - ' . $head->getTitle());
     }
 	
 	/**

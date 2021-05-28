@@ -1,5 +1,6 @@
 {
     "name": "flagbit/faq",
+    "description": "FAQ Extension for Magento 1",
     "type": "magento-module",
     "keywords": [
         "faq", "magento", "openmage"
@@ -41,7 +42,7 @@
         ]
     },
     "require": {
-        "php": "^7.2"
+        "php": "^7.2|^8.0"
     },
     "require-dev": {
         "vianetz/coding-standards": "dev-master"
