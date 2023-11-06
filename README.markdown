@@ -9,7 +9,7 @@ Setup
 -----
 
 After installation the FAQ list is available at http://example.com/your-magento-path/faq. 
-You can add a link to the FAQ module in any static block or page like this: `{{store direct_url="faq"}}.
+You can add a link to the FAQ module in any static block or page like this: `{{store direct_url="faq"}}`.
 
 Features
 --------

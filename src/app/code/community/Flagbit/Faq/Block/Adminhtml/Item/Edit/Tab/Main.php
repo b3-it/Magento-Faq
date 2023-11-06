@@ -122,13 +122,13 @@ class Flagbit_Faq_Block_Adminhtml_Item_Edit_Tab_Main extends Mage_Adminhtml_Bloc
             'name' => 'url_key',
             'label' => $this->helper('flagbit_faq')->__('URL Key'),
             'title' => $this->helper('flagbit_faq')->__('URL Key'),
-            'required' => true,
+            'required' => false,
             'comment' => $this->helper('flagbit_faq')->__('Note: Do not forget to create a rewrite for the old url if you change this!'),
         ]);
-        
+
         $form->setValues($model->getData());
         $this->setForm($form);
-        
+
         return parent::_prepareForm();
     }
 }
