@@ -1,4 +1,4 @@
-FAQ Extension for Magento 1 / OpenMage
+FAQ Extension for OpenMage (Magento 1)
 ===========
 
 Adds a new FAQ item to the CMS menu in the backend. This allows you to supply your customers with answers to frequent 
