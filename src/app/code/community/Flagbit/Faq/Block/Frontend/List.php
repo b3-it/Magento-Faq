@@ -31,21 +31,23 @@ class Flagbit_Faq_Block_Frontend_List extends Mage_Core_Block_Template
 	 * Returns collection of current FAQ entries
 	 *
 	 * @param int $pageSize
-	 * @return Flagbit_Faq_Model_Mysql_Faq_Collection collection of current FAQ entries
+	 * @return Flagbit_Faq_Model_Mysql4_Faq_Collection collection of current FAQ entries
 	 */
 	public function getFaqCollection($pageSize = null)
 	{
 		if (!$this->_faqCollection || (intval($pageSize) > 0
 			&& $this->_faqCollection->getSize() != intval($pageSize))
 		) {
-			$this->_faqCollection = Mage :: getModel('flagbit_faq/faq')
+			$this->_faqCollection = Mage::getModel('flagbit_faq/faq')
 				->getCollection()
-				->addStoreFilter(Mage :: app()->getStore())
+				->addStoreFilter(Mage::app()->getStore())
 				->addIsActiveFilter();
 			
 			if (isset($pageSize) && intval($pageSize) && intval($pageSize) > 0) {
 				$this->_faqCollection->setPageSize(intval($pageSize));
 			}
+
+			$this->_faqCollection->getSelect()->order("popularity DESC");
 		}
 		
 		return $this->_faqCollection;
@@ -59,7 +61,7 @@ class Flagbit_Faq_Block_Frontend_List extends Mage_Core_Block_Template
 	public function getCategoryCollection()
 	{
 	    $categories = $this->getData('category_collection');
-	    if (!is_null($categories)) {
+	    if (is_null($categories)) {
     	    $categories =  Mage::getResourceSingleton('flagbit_faq/category_collection')
     	       ->addStoreFilter(Mage::app()->getStore())
     	       ->addIsActiveFilter();
@@ -143,6 +145,8 @@ class Flagbit_Faq_Block_Frontend_List extends Mage_Core_Block_Template
 	{
 		$collection = Mage::getModel('flagbit_faq/faq')
 			->getCollection()
+            ->addStoreFilter(Mage::app()->getStore())
+            ->addIsActiveFilter()
 			->setPageSize($limit)
 			->setCurPage($page);
 

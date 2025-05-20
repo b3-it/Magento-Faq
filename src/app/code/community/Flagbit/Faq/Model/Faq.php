@@ -16,9 +16,8 @@
  */
 class Flagbit_Faq_Model_Faq extends Mage_Core_Model_Abstract
 {
-    /**
-     * Constructor
-     */
+    protected $_cacheTag = 'faq';
+
     protected function _construct()
     {
         $this->_init('flagbit_faq/faq');

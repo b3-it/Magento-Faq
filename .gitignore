@@ -2,3 +2,5 @@
 /.externalToolBuilders
 /.project
 /.buildpath
+composer.lock
+/vendor

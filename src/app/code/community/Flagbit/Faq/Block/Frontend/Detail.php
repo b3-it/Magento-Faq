@@ -15,24 +15,32 @@
  * @author     Flagbit GmbH & Co. KG <magento@flagbit.de>
  */
 class Flagbit_Faq_Block_Frontend_Detail extends Mage_Core_Block_Template {
-	
+
 	protected $_faq;
 	protected $_images;
-	
-	
+
 	protected function _prepareLayout()
     {
         $faq = $this->getFaq();
 
-        if ($faq !== false && $head = $this->getLayout()->getBlock('head')) {
-            $head->setTitle($this->htmlEscape($faq->getQuestion()) . ' - ' . $head->getTitle());
+        $head = $this->getLayout()->getBlock('head');
+        if ($faq === false || ! $head) {
+            return;
         }
+
+        if (! empty($faq->getMetaDescription())) {
+            $head->setDescription($faq->getMetaDescription());
+        }
+
+        $title = ! empty($faq->getData('meta_title')) ? $faq->getData('meta_title') : $faq->getData('question');
+
+        $head->setTitle($this->escapeHtml($title) . ' - ' . $head->getTitle());
     }
 	
 	/**
 	 * Function to gather the current faq item
 	 *
-	 * @return Flagbit_Faq_Model_Faq The current faq item
+	 * @return Flagbit_Faq_Model_Faq|false The current faq item
 	 */
 	public function getFaq() {
 		if (!$this->_faq) {

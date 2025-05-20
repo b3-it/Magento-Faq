@@ -26,7 +26,7 @@
 /* @var $this Flagbit_Faq_Block_Frontend_List */
 ?>
 <div class="page-title">
-	<h1><?php echo $this->__('FAQ overview'); ?></h1>
+    <h1><?php echo $this->__('FAQ overview'); ?></h1>
 </div>
 
 <?php if ($this->hasFaq()): ?>
@@ -35,11 +35,11 @@
 <?php if ($this->getCategoryCollection()) : ?>
 <dl class="faq-list">
     <?php foreach ($this->getCategoryCollection() as $category) : ?>
-        <dt><?php echo $this->htmlEscape($category->getName()); ?></dt><dd><ul class="faq-list">
-        <?php foreach ($this->getItemCollectionByCategory($category) as $item) : ?>
+        <dt><?php echo $this->escapeHtml($category->getName()); ?></dt><dd><ul class="faq-list">
+        <?php foreach ($this->getItemCollectionByCategory($category) as $faqItem) : ?>
             <li>
-                <a href="#faq-item-<?php echo $item->getId() ?>">
-                    <?php echo $this->htmlEscape($item->getQuestion()); ?>
+                <a href="#faq-item-<?php echo $faqItem->getId() ?>">
+                    <?php echo $this->escapeHtml($item->getQuestion()); ?>
                 </a>
             </li>
         <?php endforeach; ?>
@@ -51,7 +51,7 @@
     <?php foreach ($this->getFaqCollection() as $faqItem): ?>
     <li>
         <a href="#faq-item-<?php echo $faqItem->getId() ?>">
-            <?php echo $this->htmlEscape($faqItem->getQuestion()) ?>
+            <?php echo $this->escapeHtml($faqItem->getQuestion()) ?>
         </a>
     </li>
     <?php endforeach; ?>
@@ -62,10 +62,10 @@
 <dl class="faq-items">
 	<?php foreach ($this->getFaqCollection() as $faqItem): ?>
 	<dt id="faq-item-<?php echo $faqItem->getId() ?>">
-		<?php echo $this->htmlEscape($faqItem->getQuestion()) ?>
+		<?php echo $this->escapeHtml($faqItem->getQuestion()) ?>
 	</dt>
 	<dd>
-		<?php echo ($faqItem->getAnswerHtml() ? $faqItem->getAnswer() : '<p>' . implode('</p><p>', explode("\n", $this->htmlEscape($faqItem->getAnswer()))) . '</p>') ?>
+		<?php echo ($faqItem->getAnswerHtml() ? $faqItem->getAnswer() : '<p>' . implode('</p><p>', explode("\n", $this->escapeHtml($faqItem->getAnswer()))) . '</p>') ?>
 	</dd>
 	<?php endforeach; ?>
 </dl>
