@@ -1,6 +1,6 @@
 {
     "name": "flagbit/faq",
-    "description": "FAQ Extension for Magento 1",
+    "description": "FAQ Extension for OpenMage/Magento 1",
     "type": "magento-module",
     "keywords": [
         "faq", "magento", "openmage"
