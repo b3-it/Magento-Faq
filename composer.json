@@ -42,9 +42,6 @@
         ]
     },
     "require": {
-        "php": "^7.2|^8.0"
-    },
-    "require-dev": {
-        "vianetz/coding-standards": "dev-master"
+        "php": "^7.4|^8.0"
     }
 }
