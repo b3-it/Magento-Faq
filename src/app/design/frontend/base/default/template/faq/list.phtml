@@ -39,7 +39,7 @@
         <?php foreach ($this->getItemCollectionByCategory($category) as $faqItem) : ?>
             <li>
                 <a href="#faq-item-<?php echo $faqItem->getId() ?>">
-                    <?php echo $this->escapeHtml($item->getQuestion()); ?>
+                    <?php echo $this->escapeHtml($faqItem->getQuestion()); ?>
                 </a>
             </li>
         <?php endforeach; ?>
